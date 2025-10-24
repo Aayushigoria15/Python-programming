@@ -1,0 +1,5 @@
+file = open("example.txt", "r")
+print("Initial cursor position:", file.tell()) 
+content = file.read(10)  
+print("After reading 10 characters:", file.tell())
+file.close()
