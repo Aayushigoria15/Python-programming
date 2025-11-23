@@ -11,41 +11,33 @@
     {% if msg %}
         <b class="msgs">{{msg}}</b>
     {% endif %}
-   <form class="contact-form " name="signup" method="POST" action="{% url 'signup' %}">
+   <form class="contact-form " name="profile" method="POST" action="{% url 'profile' %}">
     {% csrf_token %}
     <table>
         <tr>
             <td>First Name</td>
-            <td><input type="text" name="fname" ></td>
+            <td><input type="text" name="fname" value={{user.fname}} ></td>
         </tr>
         <tr>
             <td>Last Name</td>
-            <td><input type="text" name="lname" ></td>
+            <td><input type="text" name="lname" value={{user.lname}}></td>
         </tr>
         <tr>
             <td>Email</td>
-            <td><input type="text" name="email" ></td>
+            <td><input type="text" name="email" readonly value={{user.email}}></td>
         </tr>
         <tr>
             <td>Mobile</td>
-            <td><input type="text" name="mobile" ></td>
-        </tr>
-        <tr>
-            <td>Password</td>
-           <td><input type="text" name="password" ></td>
-        </tr>
-        <tr>
-            <td>Confirm Password</td>
-            <td><input type="text" name="cpassword" ></td>
+            <td><input type="text" name="mobile" value={{user.mobile}}></td>
         </tr>
         <tr>
             <td>Address</td>
-            <td><textarea rows="5" cols="22" name="address" ></textarea></td>
+            <td><textarea rows="5" cols="22" name="address">{{user.address}}</textarea></td>
         </tr>
         <tr>
             
             <td colspan="2" align ="center">
-                <input type="submit" value="Sign UP" class="btn btn-primary">
+                <input type="submit" value="Update Profile" class="btn btn-primary">
             </td>
         </tr>
     </table>

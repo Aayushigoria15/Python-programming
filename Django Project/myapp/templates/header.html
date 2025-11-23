@@ -12,11 +12,20 @@
             padding: 10px;
         }
         .contact-form{
-            margin-left: 600px;
+            margin-left: auto;
+            margin-right: auto;
             margin-top: 100px;
             border: 2px solid black;
-            width: 300px;
+            width: 400px;
             padding: 10px;
+        }
+        .msgs{
+            color: brown; 
+            text-align: center; 
+            margin-left: 650px; 
+            margin-top: 100px;
+            
+
         }
     </style>
 </head>
@@ -38,8 +47,15 @@
                     <li><a href="{% url 'contact' %}">Contact</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{% url 'signup' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                    <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    {% if request.session.email %}
+                        <li><a href="{% url 'profile' %}"><span class="glyphicon glyphicon-edit"></span> Profile</a></li>
+                        <li><a href="{% url 'change-password' %}"><span class="glyphicon glyphicon-edit"></span> Change Password</a></li>
+                        <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out"></span> Logout {{request.session.fname}}</a></li>
+                    {% else %}
+                        <li><a href="{% url 'signup' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                        <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    {% endif %}
+                    
                 </ul>
             </div>
    </nav> 
